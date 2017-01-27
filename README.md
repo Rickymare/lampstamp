@@ -4,4 +4,4 @@
 
 This repository will serve as a holding space for everything related to this project.
 
-We will create two servers. A Wordpress data base and MySQL.
+We will create two servers. A Wordpress data base and MySQL. These servers will be hosted on Amazon Web Services.
