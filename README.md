@@ -26,3 +26,15 @@
     <li>mcrypt</li>
     <li>mysql</li>
 </details>
+
+<details>
+    <summary>Web Packages</summary>
+    <li>apache2</li>
+    <li>git</li>
+    <li>libapache2-mod-php5</li>
+    <li>libssh2-php</li>
+    <li>mailutils</li>
+    <li>postfix</li>
+    <li>unzip</li>
+    <li>zip</li>
+</details>
