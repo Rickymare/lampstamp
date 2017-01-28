@@ -1,7 +1,8 @@
-# Lamp Stamp
+# Lamp Stamp: A journey into the land of Linux
 
-### A journey into the land of LAMP
 
-This repository will serve as a holding space for everything related to this project.
+### Objectives
 
-We will create two servers. A Wordpress data base and MySQL. These servers will be hosted on Amazon Web Services.
+1. Create a database server running MySQL
+1. Provision a web server running the Wordpress application
+1. Create an Amazon S3 bucket for use with [WP Offload S3](https://wordpress.org/plugins/amazon-s3-and-cloudfront/)
