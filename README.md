@@ -13,3 +13,16 @@
 * **A**pache HTTP Server
 * **M**ySQL RDBMS
 * **P**HP Hypertext Preprocessor
+
+### Resources:
+
+<details>
+    <summary>PHP 5 Packages</summary>
+    <li>cli</li>
+    <li>curl</li>
+    <li>fpm</li>
+    <li>gd</li>
+    <li>json</li>
+    <li>mcrypt</li>
+    <li>mysql</li>
+</details>
