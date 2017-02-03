@@ -14,6 +14,11 @@
 * **M**ySQL RDBMS
 * **P**HP Hypertext Preprocessor
 
+
+### Future Plans
+
+* Automate the entire process of deployment
+
 ### Resources:
 
 <details>
