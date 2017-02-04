@@ -3,11 +3,11 @@
 
 nodes = [
   {
-    hostname: "web.hr",
+    hostname: "web",
     ip:       "192.168.56.10"
   },
   {
-    hostname: "data.hr",
+    hostname: "data",
     ip:       "192.168.56.20"
   }
 ]
