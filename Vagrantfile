@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
 
       node.vm.provider :virtualbox do |v|
         v.name = node[:hostname]
-        v.memory = 1024
+        v.memory = 512
       end
     end
   end
