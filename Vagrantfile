@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
       
       nodeconfig.vm.provision :shell, path: node[:script]
 
-      node.vm.provider :virtualbox do |v|
+      nodeconfig.vm.provider :virtualbox do |v|
         v.name = node[:hostname]
         v.memory = 512
       end
