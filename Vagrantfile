@@ -30,6 +30,8 @@ Vagrant.configure(2) do |config|
       
       nodeconfig.vm.provision :shell, path: node[:script]
 
+      nodeconfig.vm.synced_folder "#{node[:hostname]}/", "/#{node[:hostname]}"
+
       nodeconfig.vm.provider :virtualbox do |v|
         v.name = node[:hostname]
         v.memory = 512
