@@ -5,6 +5,10 @@ set -u
 
 # Update the APT cache 
 
+# Pre-seed debconf with MySQL server answers
+debconf-set-selections <<< "mysql-server mysql-server/root_password password bean"
+debconf-set-selections <<< "mysql-server mysql-server/root_password_again password bean"
+
 # Install mySQL
 
 # NOTE: potentially initialize database?
