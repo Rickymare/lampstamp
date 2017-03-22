@@ -22,6 +22,3 @@ mysql_secure_installation
 sed -i 's/bind-address.*/bind-address = 192.168.1.20' /etc/mysql/mysql.conf.d/mysql.cnf
 
 # Create usernames and passwords
-
-
-
