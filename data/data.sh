@@ -7,6 +7,7 @@ set -u
 apt update
 
 # Pre-seed debconf with MySQL server answers PASSWORD DID NOT WORK
+export DEBIAN_FRONTEND="noninteractive" 
 debconf-set-selections <<< "mysql-server mysql-server/root_password password bean"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password bean"
 
