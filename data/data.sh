@@ -42,6 +42,4 @@ sudo systemctl restart apache2
 # Creating a file to test PHP on the server
 echo "<?php
 phpinfo();
-?>
-
-
+?>" >> /var/www/html/info.php
