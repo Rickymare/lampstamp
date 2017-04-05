@@ -1,4 +1,4 @@
-##!/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 set -u
@@ -39,11 +39,9 @@ echo "
 # Restart the Apache2 server
 sudo systemctl restart apache2
 
-# Testing PHP on the server
+# Creating a file to test PHP on the server
 echo "<?php
 phpinfo();
+?>
 
 
-
-=======
->>>>>>> 2d679c0633ba24ec7d715c7f69f898c8bdbe6f9f
