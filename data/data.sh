@@ -25,6 +25,7 @@ mysql_secure_installation
 sed -i 's/bind-address.*/bind-address = 97.120.234.128' /etc/mysql/mysql.conf.d/mysql.cnf
 
 # Create usernames and passwords
+<<<<<<< HEAD
 
 # Install PHP and its dependencies
 sudo apt install php libapache2-mod-php php-mcrypt php-mysql
@@ -44,3 +45,5 @@ phpinfo();
 
 
 
+=======
+>>>>>>> 2d679c0633ba24ec7d715c7f69f898c8bdbe6f9f

@@ -17,6 +17,7 @@
 
 ### Future Plans
 
+* Include a Redis server for user sessions
 * Automate the entire process of deployment
 
 ### Resources:
