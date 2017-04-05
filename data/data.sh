@@ -9,7 +9,9 @@ apt update
 # Install Apache2
 sudo apt install apache2
 
-# Pre-seed debconf with MySQL server answers
+# Need to add yes to allow the install
+
+# Pre-seed debconf with MySQL server answers PASSWORD DID NOT WORK
 debconf-set-selections <<< "mysql-server mysql-server/root_password password bean"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password bean"
 
@@ -25,7 +27,6 @@ mysql_secure_installation
 sed -i 's/bind-address.*/bind-address = 97.120.234.128' /etc/mysql/mysql.conf.d/mysql.cnf
 
 # Create usernames and passwords
-<<<<<<< HEAD
 
 # Install PHP and its dependencies
 sudo apt install php libapache2-mod-php php-mcrypt php-mysql
@@ -40,6 +41,8 @@ echo "
 sudo systemctl restart apache2
 
 # Creating a file to test PHP on the server
+touch /var/www/html/info.php
+
 echo "<?php
 phpinfo();
 ?>" >> /var/www/html/info.php
