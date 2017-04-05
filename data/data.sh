@@ -6,11 +6,6 @@ set -u
 # Update the APT cache 
 apt update
 
-# Install Apache2
-sudo apt install apache2
-
-# Need to add yes to allow the install
-
 # Pre-seed debconf with MySQL server answers PASSWORD DID NOT WORK
 debconf-set-selections <<< "mysql-server mysql-server/root_password password bean"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password bean"
