@@ -14,11 +14,6 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password_again passwo
 # Install mySql server
 apt install mysql-server
 
-# NOTE: potentially initialize database?
-
-# Secure installation
-mysql_secure_installation
-
 # Edit the bind address with ip address
 sed -i 's/bind-address.*/bind-address = 97.120.234.128' /etc/mysql/mysql.conf.d/mysql.cnf
 
