@@ -29,8 +29,6 @@
  31 sudo systemctl restart apache2
  32 
  33 # Creating a file to test PHP on the server
- 34 touch /var/www/html/info.php
- 35 
  36 echo "<?php
  37 phpinfo();
  38 ?>" >> /var/www/html/info.php
