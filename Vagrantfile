@@ -20,7 +20,9 @@ Vagrant.configure(2) do |config|
     config.hostmanager.manage_host = true
   end
 
-  config.vm.synced_folder ".", "/vagrant", disabled: true
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = false
+  end
 
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
