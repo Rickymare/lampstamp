@@ -3,14 +3,14 @@
 
 nodes = [
   {
-    hostname: "web",
-    ip:       "192.168.56.10",
-    script:   "web/web.sh"
-  },
-  {
     hostname: "data",
     ip:       "192.168.56.20",
     script:   "data/data.sh"
+  },
+  {
+    hostname: "web",
+    ip:       "192.168.56.10",
+    script:   "web/web.sh"
   }
 ]
 
