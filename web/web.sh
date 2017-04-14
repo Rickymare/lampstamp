@@ -33,22 +33,22 @@ phpinfo();
 ?>" >> /var/www/html/info.php
 
 # Download Wordpress
-wget http://wordpress.org/latest.tar.gz -O ~/latest.tar.gz
+wget http://wordpress.org/latest.tar.gz -O /tmp/latest.tar.gz
 
 # Unzip the WordPress file
-tar xzvf ~/latest.tar.gz -C ~
+tar xzvf /tmp/latest.tar.gz -C /
 
 # Copy file
-cp ~/wordpress/wp-config-sample.php ~/wordpress/wp-config.php
+cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
 
 # Edit the wp-config file to include user, database, and password
-sed -i "/DB_NAME/c\define('DB_NAME', 'wordpress');/" ~/wordpress/wp-config.php
+sed -i "/DB_NAME/c\define('DB_NAME', 'wordpress');/" /wordpress/wp-config.php
 
-sed -i "/DB_USER/c\define('DB_USER', 'wordpressuser');" ~/wordpress/wp-config.php
+sed -i "/DB_USER/c\define('DB_USER', 'wordpressuser');" /wordpress/wp-config.php
 
-sed -i "/DB_PASSWORD/c\define('DB_PASSWORD', 'password');/" ~/wordpress/wp-config.php
+sed -i "/DB_PASSWORD/c\define('DB_PASSWORD', 'password');/" /wordpress/wp-config.php
 
-sed -i "/DB_HOST/c\define('DB_HOST', '10.154.31.45');" ~/wordpress/wp-config.php
+sed -i "/DB_HOST/c\define('DB_HOST', '10.154.31.45');" /wordpress/wp-config.php
 
 # Copy WordPress folder into document root
-rsync -avP ~/wordpress/ /var/www/html/
+rsync -avP /wordpress/ /var/www/html/
