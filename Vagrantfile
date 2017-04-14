@@ -1,37 +1,36 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-nodes = [
-  {
-    hostname: "data",
-    ip:       "192.168.56.20",
-    script:   "data/data.sh"
-  },
-  {
-    hostname: "web",
-    ip:       "192.168.56.10",
-    script:   "web/web.sh"
-  }
-]
-
 Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?("vagrant-vbguest")
     config.vbguest.auto_update = false
   end
 
-  nodes.each do |node|
-    config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.box = "ubuntu/xenial64"
-      nodeconfig.vm.network :private_network, ip: node[:ip]
-      
-      nodeconfig.vm.provision :shell, path: node[:script]
+  config.vm.define "data" do |data|
+    data.vm.box = "ubuntu/xenial64"
 
-      nodeconfig.vm.synced_folder "#{node[:hostname]}/", "/#{node[:hostname]}"
+    data.vm.network :private_network, ip: "192.168.56.20" 
 
-      nodeconfig.vm.provider :virtualbox do |v|
-        v.name = node[:hostname]
-        v.memory = 512
-      end
+    data.vm.provision :shell, path: "data/data.sh"
+ 
+    data.vm.synced_folder "data/", "/data"
+ 
+    data.vm.provider :virtualbox do |v|
+      v.name = "data"
+    end
+  end
+
+  config.vm.define "web" do |web|
+    web.vm.box = "ubuntu/xenial64"
+
+    web.vm.network :private_network, ip: "192.168.56.10" 
+
+    web.vm.provision :shell, path: "web/web.sh"
+ 
+    web.vm.synced_folder "web/", "/web"
+ 
+    web.vm.provider :virtualbox do |v|
+      v.name = "web"
     end
   end
 end
