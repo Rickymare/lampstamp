@@ -17,4 +17,4 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again p
 sudo apt install mysql-server -y
  
 # Edit the bind address with ip address
-sed -i 's/bind-address/bind-address = 10.154.31.45/' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i 's/bind-address/bind-address = 192.168.56.10/' /etc/mysql/mysql.conf.d/mysqld.cnf
