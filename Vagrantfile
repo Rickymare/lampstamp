@@ -15,11 +15,6 @@ nodes = [
 ]
 
 Vagrant.configure(2) do |config|
-  if Vagrant.has_plugin?("vagrant-hostmanager")
-    config.hostmanager.enabled     = true
-    config.hostmanager.manage_host = true
-  end
-
   if Vagrant.has_plugin?("vagrant-vbguest")
     config.vbguest.auto_update = false
   end
@@ -27,7 +22,6 @@ Vagrant.configure(2) do |config|
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
       nodeconfig.vm.box = "ubuntu/xenial64"
-      nodeconfig.vm.hostname = node[:hostname]
       nodeconfig.vm.network :private_network, ip: node[:ip]
       
       nodeconfig.vm.provision :shell, path: node[:script]
