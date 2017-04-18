@@ -16,7 +16,7 @@ sudo apt install apache2 -y
 sudo apt install php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-mysql php7.0-gd php-ssh2 -y
 
 # Adding ServerName and IP
-echo "ServerName 192.168.56.10" >> /etc/apache2/apache2.conf
+echo "ServerName 192.168.56.20" >> /etc/apache2/apache2.conf
 
 # Edit dir.conf and prioritize index.php
 echo "
@@ -45,10 +45,16 @@ sed -i "/DB_USER/c\define('DB_USER', 'wordpressuser');" /wordpress/wp-config.php
 
 sed -i "/DB_PASSWORD/c\define('DB_PASSWORD', 'password');" /wordpress/wp-config.php
 
-sed -i "/DB_HOST/c\define('DB_HOST', '192.168.56.10');" /wordpress/wp-config.php
+sed -i "/DB_HOST/c\define('DB_HOST', '192.168.56.20');" /wordpress/wp-config.php
 
 # Copy WordPress folder into document root
-sudo rsync -avP /wordpress/ /var/www/html/
+rsync -avP /wordpress/ /var/www/html/
+
+# Creating an uploads folder
+mkdir /var/www/html/wp-content/uploads
+
+# Change permissions 
+sudo chown -R :www-data /var/www/html
 
 # Restarting apache2
 sudo systemctl restart apache2
