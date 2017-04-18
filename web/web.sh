@@ -25,7 +25,7 @@ echo "
 sudo systemctl restart apache2
 
 # Install PHP and its dependencies
-sudo apt install php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-mysql php7.0-gd libssh2-php7.0 -y
+sudo apt install php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-mysql php7.0-gd php-ssh2 -y
   
 # Creating a file to test PHP on the server
 echo "<?php
