@@ -42,13 +42,13 @@ tar xzvf /tmp/latest.tar.gz -C /
 cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
 
 # Edit the wp-config file to include user, database, and password
-sed -i "/DB_NAME/c\define('DB_NAME', 'wordpress');/" /wordpress/wp-config.php
+sed -i "/DB_NAME/c\define('DB_NAME', 'wordpress');" /wordpress/wp-config.php
 
 sed -i "/DB_USER/c\define('DB_USER', 'wordpressuser');" /wordpress/wp-config.php
 
-sed -i "/DB_PASSWORD/c\define('DB_PASSWORD', 'password');/" /wordpress/wp-config.php
+sed -i "/DB_PASSWORD/c\define('DB_PASSWORD', 'password');" /wordpress/wp-config.php
 
-sed -i "/DB_HOST/c\define('DB_HOST', '192.168.56.10');" /wordpress/wp-config.php
+sed -i "/DB_HOST/c\define('DB_HOST', '192.168.56.20');" /wordpress/wp-config.php
 
 # Copy WordPress folder into document root
 rsync -avP /wordpress/ /var/www/html/

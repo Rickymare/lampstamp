@@ -18,3 +18,7 @@ sudo apt install mysql-server -y
  
 # Edit the bind address with ip address
 sed -i 's/bind-address/bind-address = 192.168.56.10/' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# Finalize mysql installation
+
+echo "hey! I am at the end of the script"
