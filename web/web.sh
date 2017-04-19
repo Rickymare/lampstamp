@@ -1,47 +1,43 @@
 #!/usr/bin/env bash
+# This script will run alongside the data.sh script to install a LAMP stack
 
 set -e
 set -u
 
 # Update the APT cache
-sudo apt update
+apt update -y
 
-# Upgrade
-sudo apt upgrade -y
+# Upgrade the apt repos to ensure we install the LTS
+apt upgrade -y
 
 # Install Apache2
-sudo apt install apache2 -y
+apt install apache2 -y
 
-# Install PHP and its dependencies
-sudo apt install php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-mysql php7.0-gd php-ssh2 -y
+# Install PHP and the dependencies
+apt install php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-mysql php7.0-gd php-ssh2 -y
 
 # Install MySQL client
-sudo apt install mysql-client -y
+apt install mysql-client -y
 
 # Adding ServerName and IP
 echo "ServerName 192.168.56.10" >> /etc/apache2/apache2.conf
 
-# Edit dir.conf and prioritize index.php
+# Edit the dir.conf and prioritize index.php
 echo "
 <IfModule mod_dir.c>
      DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 </IfModule>" > /etc/apache2/mods-enabled/dir.conf
 
-# Creating a file to test PHP on the server
-echo "<?php
-phpinfo();
-?>" >> /var/www/html/info.php
-
-# Download Wordpress
+# Download Wordpress into /tmp directory
 wget http://wordpress.org/latest.tar.gz -O /tmp/latest.tar.gz
 
-# Unzip the WordPress file
+# Unzip the WordPress
 tar xzvf /tmp/latest.tar.gz -C /
 
-# Copy file
+# Copy the wp-config-sample.php to wp-config-php
 cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
 
-# Edit the wp-config file to include user, database, and password
+# Edit the wp-config file to include databse, user, password, and data IP
 sed -i "/DB_NAME/c\define('DB_NAME', 'wordpress');" /wordpress/wp-config.php
 
 sed -i "/DB_USER/c\define('DB_USER', 'wordpressuser');" /wordpress/wp-config.php
@@ -56,8 +52,8 @@ rsync -avP /wordpress/ /var/www/html/
 # Creating an uploads folder
 mkdir /var/www/html/wp-content/uploads
 
-# Change permissions 
-sudo chown -R :www-data /var/www/html
+# Giving permissions to user and group(apache2) 
+chown -R ubuntu:www-data /var/www/html
 
 # Restarting apache2
-sudo systemctl restart apache2
+systemctl restart apache2
