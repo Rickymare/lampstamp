@@ -15,8 +15,11 @@ sudo apt install apache2 -y
 # Install PHP and its dependencies
 sudo apt install php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-mysql php7.0-gd php-ssh2 -y
 
+# Install MySQL client
+sudo apt install mysql-client -y
+
 # Adding ServerName and IP
-echo "ServerName 192.168.56.20" >> /etc/apache2/apache2.conf
+echo "ServerName 192.168.56.10" >> /etc/apache2/apache2.conf
 
 # Edit dir.conf and prioritize index.php
 echo "
